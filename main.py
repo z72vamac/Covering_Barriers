@@ -96,7 +96,7 @@ distancias = np.zeros((1000, 1000))
 #     ax.plot([b[0][0], b[1][0]], [b[0][1], b[1][1]], c='red')
 
 
-for i in range(642, 645):
+for i in range(1000):
     for j in range(1000):
         targets = [neigh.Circle(center=[x_coords[i], y_coords[j]], radii=0.01, col = 'blue')]
         resultados = hspp_b(barriers, sources, targets, wL = 0, A4 = False, log=False, picture=False, time_limit=7200, init=False)
