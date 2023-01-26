@@ -96,19 +96,19 @@ distancias = np.zeros((1000, 1000))
 #     ax.plot([b[0][0], b[1][0]], [b[0][1], b[1][1]], c='red')
 
 
-for i in range(1000):
-    for j in range(1000):
-        targets = [neigh.Circle(center=[x_coords[i], y_coords[j]], radii=0.01, col = 'blue')]
-        resultados = hspp_b(barriers, sources, targets, wL = 0, A4 = False, log=False, picture=False, time_limit=7200, init=False)
+# for i in range(1000):
+#     for j in range(1000):
+#         targets = [neigh.Circle(center=[x_coords[i], y_coords[j]], radii=0.01, col = 'blue')]
+#         resultados = hspp_b(barriers, sources, targets, wL = 0, A4 = False, log=False, picture=False, time_limit=7200, init=False)
 
-        distancias[i, j] = resultados[1]
+#         distancias[i, j] = resultados[1]
 
-        # if resultados[1] < radii:
-        #     ax.scatter(xcor, ycor, color = 'blue')
-        # else:
-        #     ax.scatter(xcor, ycor, color = 'red')
+#         # if resultados[1] < radii:
+#         #     ax.scatter(xcor, ycor, color = 'blue')
+#         # else:
+#         #     ax.scatter(xcor, ycor, color = 'red')
 
-    np.savetxt('distancias_masbarreras.csv', distancias, delimiter=',')
+#     np.savetxt('distancias_masbarreras.csv', distancias, delimiter=',')
 # ax.scatter(sources[0].center[0], sources[0].center[1], c='green')
 
 # plt.axis([0, 100, 0, 100])
@@ -136,13 +136,13 @@ for i in range(1000):
 # ax.set_aspect('equal')
 # plt.show()
 
-# import seaborn as sns
+import seaborn as sns
 
-# distancias = np.genfromtxt('distancias.csv', delimiter = ',').T
+distancias = np.genfromtxt('distancias_masbarreras.csv', delimiter = ',').T
 
-# fig, ax = plt.subplots()
+fig, ax = plt.subplots()
 
-# sns.heatmap(distancias[::-1, :], cmap = 'Greys')
+sns.heatmap(distancias[::-1, :], cmap = 'Greys')
 
-# plt.show()
+plt.show()
 
